@@ -5,11 +5,11 @@ import {GetServerSideProps} from "next";
 import {Character} from "@/interface/character";
 import {GetStaticProps} from "next";
 import Head from "next/head";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/ui/Navbar";
 import Link from "next/link";
 import {useRouter} from "next/router";
-
-const inter = Inter({subsets: ["latin"]});
+import Layout from "@/components/layouts/Layout";
+import { CONTEN_BY_LOACALES } from "@/locales";
 
 interface PageProps {
 	characters: Character[];
@@ -17,6 +17,11 @@ interface PageProps {
 
 export default function HomePage({characters}: PageProps) {
 	const router = useRouter();
+	const { locale } = useRouter();
+	
+	const localcontent = CONTEN_BY_LOACALES[locale as keyof typeof CONTEN_BY_LOACALES];
+
+	const {title} = localcontent.home
 
 	const handleNavigation = (id: string) => {
 		router.push(`/character/${id}`);
@@ -25,49 +30,45 @@ export default function HomePage({characters}: PageProps) {
 	if (!characters) return <h1>No hay personajes</h1>;
 
 	return (
-		<>
-			<Head>
-				<title>Ecommerce DH Amiibo</title>
-				<meta name="description" content="Amiibo characters" />
-			</Head>
-			<Navbar />
-			<main
-				className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-			>
-				<div className="grid grid-cols-6 gap-6">
-					{characters.map((character, index) => (
-						<div
-							key={index}
-              className="flex flex-col items-center justify-center"
-              onClick={() => handleNavigation(character.tail)}
-						>
-							<Image
-								src={character.image}
-								alt={character.name}
-								width={100}
-								height={100}
-							/>
-							<p className="text-center">{character.name}</p>
-						</div>
+		<Layout
+			title="Home - Amiibo"
+			description="Amiibo characters, nintendo, games"
+			keywords="amiibo, characters"
+		>
+			<h1 className="mb-10 text-2xl font-bold">{title}</h1>
+			<div className="grid grid-cols-6 gap-6">
+				{characters.map((character, index) => (
+					<div
+						key={index}
+						className="flex flex-col items-center justify-center"
+						onClick={() => handleNavigation(character.tail)}
+					>
+						<Image
+							src={character.image}
+							alt={character.name}
+							width={100}
+							height={100}
+						/>
+						<p className="text-center">{character.name}</p>
+					</div>
 
-						// <Link href={`/character/${character.tail}`} key={index}>
-						// 	<div
-						// 		key={index}
-						// 		className="flex flex-col items-center justify-center"
-						// 	>
-						// 		<Image
-						// 			src={character.image}
-						// 			alt={character.name}
-						// 			width={100}
-						// 			height={100}
-						// 		/>
-						// 		<p className="text-center">{character.name}</p>
-						// 	</div>
-						// </Link>
-					))}
-				</div>
-			</main>
-		</>
+					// <Link href={`/character/${character.tail}`} key={index}>
+					// 	<div
+					// 		key={index}
+					// 		className="flex flex-col items-center justify-center"
+					// 	>
+					// 		<Image
+					// 			src={character.image}
+					// 			alt={character.name}
+					// 			width={100}
+					// 			height={100}
+					// 		/>
+					// 		<p className="text-center">{character.name}</p>
+					// 	</div>
+					// </Link>
+				))}
+			</div>
+		</Layout>
 	);
 }
 
