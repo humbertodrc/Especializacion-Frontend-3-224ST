@@ -10,10 +10,10 @@ export interface Item {
   ki:          string;
   maxKi:       string;
   race:        string;
-  gender:      Gender;
+  gender?:      Gender;
   description: string;
   image:       string;
-  affiliation: Affiliation;
+  affiliation?: Affiliation;
   deletedAt:   null;
 }
 
