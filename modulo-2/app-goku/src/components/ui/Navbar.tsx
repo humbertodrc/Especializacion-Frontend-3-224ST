@@ -17,7 +17,9 @@ export default function Navbar() {
 					</Link>
 				</li>
 				<li>
-					<Link className="hover:underline" href="/planetas">Planteas</Link>
+					<Link className="hover:underline" href="/planetas">
+						Planetas
+					</Link>
 				</li>
 			</ul>
 		</nav>
