@@ -40,15 +40,13 @@ export default function FaqsPage({faqs} : FaqsPageProps) {
 // - Only if you need to pre-render a page whose data must be fetched at request time
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const response = await fetch('http://localhost:3000/api/faqs')
+  const response = await fetch(`${process.env.API_BASE_URL}/faqs`)
   
   const faqs = await response.json()
 
-  console.log(faqs);
-
   return {
     props: {
-      faqs
+      faqs: faqs ?? []
     }
   }
 }
