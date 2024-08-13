@@ -40,7 +40,7 @@ export default function FaqsPage({faqs} : FaqsPageProps) {
 // - Only if you need to pre-render a page whose data must be fetched at request time
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const response = await fetch(`${process.env.API_BASE_URL}/faqs`)
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_UR}/faqs`)
   
   const faqs = await response.json()
 
