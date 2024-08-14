@@ -53,7 +53,7 @@ export default function Home({ characters, meta, links }: HomeProps) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	const page = ctx.query.page ? ctx.query.page : 1;
-	console.log(page);
+	// console.log(page);
 	const res = await fetch(`https://dragonball-api.com/api/characters?page=${page}&limit=12`);
 	const data = await res.json();
 

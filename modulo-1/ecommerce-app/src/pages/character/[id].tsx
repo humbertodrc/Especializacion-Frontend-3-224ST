@@ -72,7 +72,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 		},
 	}));
 
-	console.log(paths);
+	// console.log(paths);
 
 	return {
 		paths,

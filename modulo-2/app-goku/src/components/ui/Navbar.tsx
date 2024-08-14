@@ -21,6 +21,11 @@ export default function Navbar() {
 						Planetas
 					</Link>
 				</li>
+				<li>
+					<Link className="hover:underline" href="/faqs">
+						Preguntas Frecuentes
+					</Link>
+				</li>
 			</ul>
 		</nav>
 	);
