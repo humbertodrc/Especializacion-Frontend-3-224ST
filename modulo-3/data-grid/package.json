@@ -16,8 +16,11 @@
     "@mui/icons-material": "^6.0.0",
     "@mui/material": "^6.0.0",
     "@mui/material-nextjs": "^6.0.0",
+    "@mui/x-data-grid": "^7.14.0",
     "@mui/x-data-grid-generator": "^7.14.0",
+    "install": "^0.13.0",
     "next": "14.2.6",
+    "npm": "^10.8.2",
     "react": "^18",
     "react-dom": "^18"
   },
