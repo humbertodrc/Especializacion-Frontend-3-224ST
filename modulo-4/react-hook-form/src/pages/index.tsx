@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import {Inter} from "next/font/google";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -6,11 +6,11 @@ export default function Home() {
 	return (
 		<main
 			className={`flex min-h-screen flex-col items-center p-24 ${inter.className}`}
-    >
-      <h1 className="text-3xl text-indigo-500 font-bold">React Hook Form</h1>
+		>
+			<h1 className="text-3xl text-indigo-500 font-bold">React Hook Form</h1>
 			<div className="max-w-md w-full mx-auto mt-10">
-				<div className="bg-white p-8 rounded-lg shadow-md flex flex-col gap-6 w-full">
-					<form>
+				<div className="bg-white p-8 rounded-lg shadow-md w-full">
+					<form className="flex flex-col gap-5">
 						{/* Nombre */}
 						<div>
 							<label
@@ -59,6 +59,38 @@ export default function Home() {
 							/>
 						</div>
 
+						{/* Contraseña */}
+						<div>
+							<label
+								htmlFor="password"
+								className="block text-sm font-medium text-gray-700"
+							>
+								Contraseña:
+							</label>
+							<input
+								type="password"
+								id="password"
+								className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+								required
+							/>
+						</div>
+
+						{/* Confirmar contraseña */}
+						<div>
+							<label
+								htmlFor="confirmPassword"
+								className="block text-sm font-medium text-gray-700"
+							>
+								Confirmar Contraseña:
+							</label>
+							<input
+								type="password"
+								id="confirmPassword"
+								className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+								required
+							/>
+						</div>
+
 						{/* Género */}
 						<div>
 							<label
@@ -78,7 +110,7 @@ export default function Home() {
 						</div>
 
 						{/* Botón de Envío */}
-						<div className="mt-6">
+						<div className="mt-4">
 							<button
 								type="submit"
 								className="w-full bg-indigo-600 text-white font-bold py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
