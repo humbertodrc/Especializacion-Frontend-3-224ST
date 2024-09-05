@@ -1,3 +1,4 @@
+import { Form } from "@/components/Form";
 import {Container, Typography, Box} from "@mui/material";
 import Head from "next/head";
 
@@ -24,6 +25,7 @@ export default function Home() {
             <Typography variant="h4" component="h1" gutterBottom>
               React Hook Form + Material-UI + Yup
             </Typography>
+            <Form />
           </Box>
 				</Container>
 			</main>
