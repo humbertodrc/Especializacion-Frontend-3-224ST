@@ -1,6 +1,5 @@
 import { Container, Paper, Typography } from "@mui/material";
-import { FormProvider, useForm } from "react-hook-form";
-
+import { useForm } from "react-hook-form";
 
 export const Form = () => {
 	const methods = useForm({});
@@ -9,21 +8,18 @@ export const Form = () => {
 		console.log(data);
 	};
 
-
 	return (
 		<Container sx={{width: "500px"}}>
-			<FormProvider {...methods}>
-				<form onSubmit={methods.handleSubmit(onSubmit)}>
-					<Typography variant="h4" component="h1">
-						{methods.watch("name")}
-					</Typography>
-					<Paper
-						sx={{p: "32px", display: "flex", flexDirection: "column", gap: 3}}
-					>
-						{/* Inputs */}
-					</Paper>
-				</form>
-			</FormProvider>
+			<form onSubmit={methods.handleSubmit(onSubmit)}>
+				<Typography variant="h4" component="h1">
+					{methods.watch("name")}
+				</Typography>
+				<Paper
+					sx={{p: "32px", display: "flex", flexDirection: "column", gap: 3}}
+				>
+					{/* Inputs */}
+				</Paper>
+			</form>
 		</Container>
 	);
 };
