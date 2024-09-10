@@ -23,7 +23,7 @@ export default function Home() {
 						}}
           >
             <Typography variant="h4" component="h1" gutterBottom>
-              React Hook Form + Material-UI + Yup
+              UseFormContext
             </Typography>
             <Form />
           </Box>
