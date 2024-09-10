@@ -2,7 +2,7 @@ import { Container, Paper, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 
 export const Form = () => {
-	const methods = useForm({});
+	const { control, register, handleSubmit, formState, setValue, getValues } = useForm({});
 
 	const onSubmit = (data: any) => {
 		console.log(data);
@@ -10,9 +10,9 @@ export const Form = () => {
 
 	return (
 		<Container sx={{width: "500px"}}>
-			<form onSubmit={methods.handleSubmit(onSubmit)}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<Typography variant="h4" component="h1">
-					{methods.watch("name")}
+					Formulario con useFieldArray
 				</Typography>
 				<Paper
 					sx={{p: "32px", display: "flex", flexDirection: "column", gap: 3}}
